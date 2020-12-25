@@ -17,3 +17,14 @@ new Vue({
   components: {App},
   template: '<App/>'
 })
+router.beforeEach((to, from, next) => {
+  let Token=localStorage.token
+  if (to.meta.needLogin) {
+    if (Token) {
+      next()
+    }
+    else next({path:'login'})
+  } else {
+    next()
+  }
+})

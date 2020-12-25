@@ -1,0 +1,15 @@
+# idea
+.idea/
+*.iml
+
+### IntelliJ IDEA ####
+*.iml
+*.ipr
+*.iws
+.idea
+.classpath
+.project
+.settings/
+bin/
+###vue###
+node_modules/

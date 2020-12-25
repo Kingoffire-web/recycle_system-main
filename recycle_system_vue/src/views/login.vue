@@ -40,12 +40,15 @@
             </el-input>
           </el-form-item>
           <el-form-item prop="password">
-            <el-input v-model="loginForm.password"  placeholder="请输入密码" size="medium" @keyup.enter.native="submitForm('loginForm')">
+            <el-input v-model="loginForm.password"  placeholder="请输入密码" size="medium" >
               <el-button slot="prepend" icon="el-icon-key"></el-button>
             </el-input>
           </el-form-item>
           <el-form-item>
             <el-button type="primary" size="medium"  style="width:100%" @click="submitForm('loginForm')">立即登陆</el-button>
+          </el-form-item>
+          <el-form-item>
+            <el-button type="primary" size="medium"  style="width:100%" @click="jump" >注册</el-button>
           </el-form-item>
         </el-form>
       </div>
@@ -93,6 +96,7 @@
             axios.get('http://localhost:8181/checklogin/'+this.loginForm.identity+'/'+this.loginForm.username+'/'+this.loginForm.password+'').then(function (resp) {
               console.log(resp)
               if(resp.data.login){
+                  localStorage.setItem('token',resp.data.token)
                   _this.$store.commit('setUserId',resp.data.id)
                   _this.$store.commit('setUserName',resp.data.name)
                   _this.$router.push({
@@ -106,7 +110,13 @@
             _this.$alert('用户名或密码格式错误','提示');
           }
         });
-      },
+      },jump(){
+        //this.$router.push("/cart")
+        //传递的参数用{{ $route.query.goodsId }}获取
+        this.$router.push({path: '/register'})
+        //this.$router.go(-2)
+        //后退两步
+      }
     }
   }
 </script>
