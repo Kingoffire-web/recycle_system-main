@@ -36,11 +36,11 @@
           <li v-for="item in tableData" class="food-list food-list-hook" :key="item.kindid">
             <h1 class="title">{{item.kind}}</h1>
             <ul v-for="good in item.goods" class="food-item border-1px" :key="good.goodid">
-              <div class="content">
-                <h2 class="name">{{good.name}}</h2>
-                <div class="weight"><el-input-number  v-model="good.weight"  :precision="1" :step="0.5" label="dsfbdfgfds"></el-input-number></div>
+              <div class="content" style="float: left">
+                <div class="name" >{{good.name}}</div>
+                <div class="price" >单价：{{good.price}}（元/斤）</div>
+                <div class="weight" ><el-input-number  v-model="good.weight"  :precision="1" :step="0.5" ></el-input-number></div>
 
-                <div class="price">单价：{{good.price}}（元/斤）</div>
               </div>
             </ul>
           </li>
@@ -369,19 +369,22 @@
     flex: 1;
   }
   .food-item .name{
-    display: inline-block;
+    /*display: inline-block;*/
+    margin: auto 0;
+    float: left;
     line-height: 14px;
     font-size: 14px;
     color: rgb(7,17,27);
-    width: 52%;
+
   }
   .price{
-    display: inline-block;
-    width: 52%;
+    /*display: inline-block;*/
+    float: left;
+    line-height: 14px;
     font-size: 14px;
     color: rgb(240,20,20);
     font-weight: 700;
-    line-height: 24px;
+
   }
   .weight{
     margin-top: 20px;

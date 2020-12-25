@@ -1,7 +1,7 @@
 # idea
 .idea/
 *.iml
- 
+
 ### IntelliJ IDEA ####
 *.iml
 *.ipr
@@ -11,3 +11,5 @@
 .project
 .settings/
 bin/
+###vue###
+node_modules/
